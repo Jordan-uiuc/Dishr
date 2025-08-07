@@ -1,0 +1,19 @@
+# Node (frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Python (backend)
+backend/__pycache__/
+backend/*.pyc
+backend/.venv/
+backend/.env
+
+# Lambda build artifacts
+backend/build/
+backend/*.zip
+
+# System
+.DS_Store
+.env
+*.log

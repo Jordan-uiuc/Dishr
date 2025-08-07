@@ -1,4 +1,4 @@
-import { Meal } from "../types/Meal";
+import type { Meal } from "../types/Meal";
 import { motion, useDragControls} from "motion/react";
 import { useRef } from "react";
 
