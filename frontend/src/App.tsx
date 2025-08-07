@@ -16,6 +16,7 @@ function App() {
   return (
     <div className='flex page-container justify-center items-center min-h-screen h-screen'>
       <SwipeCard meal={meal}/>
+      
     </div>
     
   );
