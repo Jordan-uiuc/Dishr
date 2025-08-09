@@ -174,9 +174,9 @@ npm run build
 
 ## Current Features
 
-- [ X ] Random recipe discovery
-- [ X ] Swipe gestures for liking/disliking recipes
-- [ X ] DynamoDB integration for saving favorites
+- [x] Random recipe discovery
+- [x] Swipe gestures for liking/disliking recipes
+- [x] DynamoDB integration for saving favorites
 
 ## Future Features
 
