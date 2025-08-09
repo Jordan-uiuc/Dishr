@@ -1,1 +1,4 @@
 requests
+pytest
+moto                    # For mocking AWS services
+responses 

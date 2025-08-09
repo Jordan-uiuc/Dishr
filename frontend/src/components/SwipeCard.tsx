@@ -1,6 +1,6 @@
 import type { Meal } from "../types/Meal";
 import { motion, useDragControls } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 
 
 
@@ -51,10 +51,12 @@ export default function SwipeCard({ meal, onConfirm }: SwipeCardProps) {
           setBadgeType("like");
           setIsExiting(true);
           setExitX(window.innerWidth);
+          onConfirm?.("like", meal);
         } else if (info.offset.x < -OFFSET_THRESHOLD) {
           setBadgeType("skip");
           setIsExiting(true);
           setExitX(-window.innerWidth);
+          onConfirm?.("skip", meal)
         } else {
           setBadgeOpacity(0);
           setBadgeType(null);
@@ -92,7 +94,7 @@ export default function SwipeCard({ meal, onConfirm }: SwipeCardProps) {
         )}
         {meal?.image ? (
           <img
-          className="w-84 h-84 object-cover mb-4 rounded-md"
+          className="w-84 h-84 object-cover mb-4 rounded-md select-none"
           src={meal.image}
           alt={meal?.name || "recipe"}
         />

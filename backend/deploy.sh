@@ -1,3 +1,6 @@
+# TO DEPLOY RUN THE FOLLOWING COMMAND
+# bash deploy.sh {function_name}
+
 FUNCTION_NAME=$1
 ZIP_FILE="$FUNCTION_NAME.zip"
 SOURCE_DIR="./functions/$FUNCTION_NAME"
@@ -21,7 +24,7 @@ cd ../..
 
 echo "⬆️ Uploading to Lambda..."
 RESPONSE=$(aws lambda update-function-code \
-  --function-name "$FUNCTION_NAME" \
+  --function-name "Dishr_$FUNCTION_NAME" \
   --zip-file "fileb://$ZIP_FILE" \
   --region us-east-1 \
   --profile default) || exit 1

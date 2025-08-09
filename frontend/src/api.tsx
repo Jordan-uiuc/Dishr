@@ -1,13 +1,25 @@
 import type { Meal } from "./types/Meal";
 
-export default async function fetchRecipe(): Promise<Meal | undefined> {
-  try {
-    const res = await fetch('https://tpg2bw66i3.execute-api.us-east-1.amazonaws.com/v1/get_recipe');
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+export async function fetchRecipe(): Promise<Meal> {
+    const res = await fetch(`${API_BASE_URL}/get_recipe`,
+      {method: "GET"});
+    if (!res.ok) {
+      throw new Error(`HTTP error! status: ${res.status}`);
+    }
     const data = await res.json();
     return data as Meal
+}
+
+export async function saveLike(meal: Meal, userId: string): Promise<void> {
+  const res = await fetch(`${API_BASE_URL}/save_like`, {
+    method: "POST",
+    body: JSON.stringify({userId, meal}),
+  });
+  if (!res.ok) {
+    throw new Error(`HTTP error! status: ${res.status}`);
   }
-  catch(error) {
-    console.error("Error fetching recipe:", error);
-    return undefined;
-  }
+  
+  
 }
